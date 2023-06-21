@@ -7,7 +7,7 @@ from positional_encoding import SinePositionEncoding
 from configuration.configuration import Config
 
 
-class CustomEmbedding(Layer):
+class Dense2Embed(Layer):
     def __init__(self, embed_dim):
         self.embed_dim = embed_dim
         super().__init__()
@@ -363,7 +363,7 @@ class AutoFormerEncoder(Layer):
         Args:
             input_shape: Shape of the input tensor.
         """
-        self.embedding = CustomEmbedding(self.config.embed_dim)
+        self.embedding = Dense2Embed(self.config.embed_dim)
         self.sum_pos_encoding = SumPositionEncoding(self.config.max_wavelength)
         self.ln = LayerNormalization()
         self.dropout_layer = Dropout(self.dropout)
