@@ -1,6 +1,6 @@
 import tensorflow as tf
 from keras.models import Sequential
-from keras.layers import Layer, Dropout, EinsumDense, LayerNormalization, Dense, Embedding
+from keras.layers import Layer, Dropout, EinsumDense, LayerNormalization, Dense
 from keras.layers import activation
 from decomposition import DecompositionLayer
 from positional_encoding import SinePositionEncoding
