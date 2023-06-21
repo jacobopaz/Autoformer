@@ -4,8 +4,6 @@ from keras.layers import Layer, Dropout, EinsumDense, LayerNormalization, Dense,
 from keras.layers import activation
 from decomposition import DecompositionLayer
 from positional_encoding import SinePositionEncoding
-import sys
-sys.path.append('./src')
 from configuration.configuration import Config
 
 
@@ -389,8 +387,3 @@ class AutoFormerEncoder(Layer):
         hidden_states = self.dropout_layer(hidden_states)
         hidden_states = self.enc_layers(hidden_states)
         return hidden_states
-
-
-
-
-

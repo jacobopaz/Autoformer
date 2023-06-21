@@ -1,7 +1,5 @@
 import tensorflow as tf
 from keras.layers import Layer, AveragePooling1D
-import sys
-sys.path.append('./src')
 from configuration.configuration import Config
 
 
