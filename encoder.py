@@ -13,7 +13,6 @@ class CustomEmbedding(Layer):
         super().__init__()
     
     def build(self, input_shape):
-        feats_in = input_shape[2]
         self.embed_layer = Dense(self.embed_dim)
         super().build(input_shape)
 
