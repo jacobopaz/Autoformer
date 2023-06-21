@@ -118,8 +118,7 @@ class AutoCorrelation(Layer):
         queries = self.wq(hidden_states)
         values = self.wv(hidden_states)
 
-        
-        # Resize (truncation or zero filling)
+
         queries_time_length = queries.shape[1]
         values_time_length = values.shape[1]
         if queries_time_length > values_time_length:
@@ -148,11 +147,11 @@ class AutoCorrelation(Layer):
                 f" {att_weights.shape}"
             )
         
-        # time delay aggregation
+
         time_len = values.shape[1]
         autocorrelations = att_weights
 
-        # find top k autocorrelations delays
+        # top k autocorrelations delays
         top_k = int(self.autocorr_factor * tf.math.log(tf.constant([time_len], dtype=tf.float32)))
         autocorrels_mean_on_head = tf.math.reduce_mean(autocorrelations, axis=(-1))  # batch size x seq_len x channel
         if training:
